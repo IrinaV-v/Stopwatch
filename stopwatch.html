@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>StopWatch</title>
+ </head>
+ <body>
+ 	<h1 id = 'h1'>00:00:00</h1>
+ 	<button id = "start" onClick = "count()">Start</button>
+ 	<button id = "pause" onClick = "pause()">Pause</button>
+
+ <script>
+ 	var h1 = document.getElementById('h1'),
+ 	second = 0,
+ 	minutes = 0,
+ 	hours = 0,
+ 	t;
+
+ 	function count(){
+ 		t = setTimeout(timer, 1000)
+ 	}
+ 	function timer(){
+ 		seconds = seconds +1
+ 		if (seconds >= 60){
+ 			seconds = 0
+ 			minutes = minutes + 1
+ 		}
+ 		if (minutes >= 60){
+ 			minutes = 0
+ 			hours = hours + 1
+ 		}
+ 		h1.textContent = `${hours}: ${minutes}: ${seconds}`;
+ 		count();
+
+ 	}
+ 	function pause(){
+ 		clearTimeout(t);
+ 	}
+	 </script>
